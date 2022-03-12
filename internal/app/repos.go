@@ -2,6 +2,7 @@ package app
 
 import (
 	"github.com/jmoiron/sqlx"
+	_ "github.com/lib/pq"
 	"github.com/ridwanakf/tms-backend/internal"
 	"github.com/ridwanakf/tms-backend/internal/app/config"
 	"github.com/ridwanakf/tms-backend/internal/repo"
