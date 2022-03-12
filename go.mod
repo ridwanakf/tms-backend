@@ -7,7 +7,7 @@ require (
 	github.com/go-playground/validator v9.31.0+incompatible
 	github.com/jmoiron/sqlx v1.3.4
 	github.com/joho/godotenv v1.4.0
-	github.com/labstack/echo/v4 v4.3.0
+	github.com/labstack/echo/v4 v4.0.0
 	github.com/lib/pq v1.10.4
 	github.com/pkg/errors v0.9.1
 )
