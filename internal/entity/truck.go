@@ -41,10 +41,10 @@ type (
 
 	UpdateTruckRequest struct {
 		ID             int64  `json:"id"  validate:"required"`
-		LicenseNumber  string `json:"license"`
-		TruckType      string `json:"truck"`
-		PlateType      string `json:"plate"`
-		ProductionYear int64  `json:"production"`
+		LicenseNumber  string `json:"license_number"`
+		TruckType      string `json:"truck_type"`
+		PlateType      string `json:"plate_type"`
+		ProductionYear int64  `json:"production_year"`
 		Status         bool   `json:"status"`
 		STNK           string `json:"stnk"`
 		KIR            string `json:"kir"`
