@@ -13,27 +13,27 @@ func Start(app *app.ShipmentApp) {
 
 	// Init Trucks Handlers
 	trucks := srv.Group("/trucks")
-	trucks.GET("/", svc.GetTruckListHandler)
+	trucks.GET("", svc.GetTruckListHandler)
 	trucks.GET("/:id", svc.GetTruckByIDHandler)
-	trucks.POST("/", svc.CreateNewTruckHandler)
+	trucks.POST("", svc.CreateNewTruckHandler)
 	trucks.PUT("/:id", svc.UpdateTruckHandler)
-	trucks.DELETE("/", svc.DeleteTruckHandler)
+	trucks.DELETE("/:id", svc.DeleteTruckHandler)
 
 	// Init Drivers Handlers
 	drivers := srv.Group("/drivers")
-	drivers.GET("/", svc.GetDriverListHandler)
+	drivers.GET("", svc.GetDriverListHandler)
 	drivers.GET("/:id", svc.GetDriverByIDHandler)
-	drivers.POST("/", svc.CreateNewDriverHandler)
+	drivers.POST("", svc.CreateNewDriverHandler)
 	drivers.PUT("/:id", svc.UpdateDriverHandler)
-	drivers.DELETE("/", svc.DeleteDriverHandler)
+	drivers.DELETE("/:id", svc.DeleteDriverHandler)
 
 	// Init Shipments Handlers
 	shipments := srv.Group("/shipments")
-	shipments.GET("/", svc.GetShipmentListHandler)
+	shipments.GET("", svc.GetShipmentListHandler)
 	shipments.GET("/:id", svc.GetShipmentByIDHandler)
-	shipments.POST("/", svc.CreateNewShipmentHandler)
+	shipments.POST("", svc.CreateNewShipmentHandler)
 	shipments.PUT("/:id", svc.UpdateShipmentHandler)
-	shipments.DELETE("/", svc.DeleteShipmentHandler)
+	shipments.DELETE("/:id", svc.DeleteShipmentHandler)
 
 	server.Start(srv, &app.Cfg.Server)
 }
