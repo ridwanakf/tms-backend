@@ -20,10 +20,10 @@ type Truck struct {
 // Requests
 type (
 	CreateNewTruckRequest struct {
-		LicenseNumber  string `json:"license" validate:"required"`
-		TruckType      string `json:"truck" validate:"required"`
-		PlateType      string `json:"plate" validate:"required"`
-		ProductionYear int64  `json:"production" validate:"required"`
+		LicenseNumber  string `json:"license_number" validate:"required"`
+		TruckType      string `json:"truck_type" validate:"required"`
+		PlateType      string `json:"plate_type" validate:"required"`
+		ProductionYear int64  `json:"production_year" validate:"required"`
 		STNK           string `json:"stnk" db:"stnk"`
 		KIR            string `json:"kir" db:"kir"`
 	}
@@ -46,8 +46,8 @@ type (
 		PlateType      string `json:"plate"`
 		ProductionYear int64  `json:"production"`
 		Status         bool   `json:"status"`
-		STNK           string `json:"stnk" db:"stnk"`
-		KIR            string `json:"kir" db:"kir"`
+		STNK           string `json:"stnk"`
+		KIR            string `json:"kir"`
 	}
 
 	DeleteTruckRequest struct {
