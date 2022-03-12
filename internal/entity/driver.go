@@ -18,30 +18,58 @@ type Driver struct {
 // Requests
 type (
 	CreateNewDriverRequest struct {
+		Name           string `json:"name" db:"name"`
+		Phone          string `json:"phone" db:"phone"`
+		CardID         int64  `json:"id_card" db:"id_card"`
+		DriverLicense  int64  `json:"driver_license" db:"driver_license"`
+		Status         bool   `json:"status" db:"status"`
+		ShipmentStatus bool   `json:"shipment_status" db:"shipment_status"`
 	}
 
 	GetDriverListRequest struct {
+		Name           string `json:"name" db:"name"`
+		Phone          string `json:"phone" db:"phone"`
+		CardID         int64  `json:"id_card" db:"id_card"`
+		DriverLicense  int64  `json:"driver_license" db:"driver_license"`
+		Status         bool   `json:"status" db:"status"`
+		ShipmentStatus bool   `json:"shipment_status" db:"shipment_status"`
+		Page           int64  `json:"page"`
+		Limit          int64  `json:"limit"`
 	}
 
 	GetDriverByIDRequest struct {
+		ID int64 `json:"id"`
 	}
 
 	UpdateDriverRequest struct {
+		ID             int64  `json:"id"`
+		Name           string `json:"name" db:"name"`
+		Phone          string `json:"phone" db:"phone"`
+		CardID         int64  `json:"id_card" db:"id_card"`
+		DriverLicense  int64  `json:"driver_license" db:"driver_license"`
+		Status         bool   `json:"status" db:"status"`
+		ShipmentStatus bool   `json:"shipment_status" db:"shipment_status"`
 	}
 
 	DeleteDriverRequest struct {
+		ID int64 `json:"id"`
 	}
 )
 
 // Response
 type (
 	CreateNewDriverResponse struct {
+		ID int64 `json:"id"`
 	}
 
 	GetDriverListResponse struct {
+		Data struct {
+			Rows []Driver `json:"rows"`
+		} `json:"data"`
 	}
 
 	GetDriverByIDResponse struct {
+		Driver
 	}
 
 	UpdateDriverResponse struct {

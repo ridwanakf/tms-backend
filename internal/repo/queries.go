@@ -3,10 +3,10 @@ package repo
 // Driver
 const (
 	queryCreateNewDriver = `INSERT INTO drivers(name, phone, id_card, driver_license, status, shipment_status) VALUES($1, $2, $3, $4, $5, $6) RETURNING id`
-	queryGetAllDrivers   = `SELECT * FROM drivers`
+	queryGetAllDrivers   = `SELECT * FROM drivers  WHERE ($1 = '' OR name ILIKE $1) OFFSET $2 LIMIT $3`
 	queryGetDriverById   = `SELECT * FROM drivers WHERE id=$1`
 	queryUpdateDriver    = `UPDATE drivers SET name=$1, phone=$2, id_card=$3, driver_license=$4, status=$5, shipment_status=$6, updated_at=$7 WHERE id=$8`
-	queryDeleteDriver    = `UPDATE drivers deleted_at=$1 WHERE id=$2`
+	queryDeleteDriver    = `UPDATE trucks status=true WHERE id=$1`
 )
 
 // Truck
