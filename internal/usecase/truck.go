@@ -16,26 +16,21 @@ func NewTruckUsecase(repo internal.TruckRepo) *TruckUsecase {
 }
 
 func (uc *TruckUsecase) CreateNewTruck(req entity.CreateNewTruckRequest) (entity.CreateNewTruckResponse, error) {
-	//TODO implement me
-	panic("implement me")
+	return uc.repo.CreateNewTruck(req)
 }
 
 func (uc *TruckUsecase) GetTruckList(req entity.GetTruckListRequest) (entity.GetTruckListResponse, error) {
-	//TODO implement me
-	panic("implement me")
+	return uc.repo.GetTruckList(req)
 }
 
 func (uc *TruckUsecase) GetTruckByID(req entity.GetTruckByIDRequest) (entity.GetTruckByIDResponse, error) {
-	//TODO implement me
-	panic("implement me")
+	return uc.repo.GetTruckByID(req)
 }
 
 func (uc *TruckUsecase) UpdateTruck(req entity.UpdateTruckRequest) (entity.UpdateTruckResponse, error) {
-	//TODO implement me
-	panic("implement me")
+	return uc.repo.UpdateTruck(req)
 }
 
 func (uc *TruckUsecase) DeleteTruck(req entity.DeleteTruckRequest) (entity.DeleteTruckResponse, error) {
-	//TODO implement me
-	panic("implement me")
+	return uc.repo.DeleteTruck(req)
 }
