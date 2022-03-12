@@ -16,8 +16,17 @@ func NewShipmentDB(db *sqlx.DB) *ShipmentDB {
 }
 
 func (r *ShipmentDB) CreateNewShipment(req entity.CreateNewShipmentRequest) (entity.CreateNewShipmentResponse, error) {
-	//TODO implement me
-	panic("implement me")
+	var res entity.CreateNewShipmentResponse
+	q, err := r.db.Prepare(queryCreateNewShipment)
+	if err != nil {
+		return res, err
+	}
+
+	err = q.QueryRow(req.ShipmentNumber, req.Origin, req.Destination, req.LoadingDate).Scan(&res.ID)
+	if err != nil {
+		return res, err
+	}
+	return res, nil
 }
 
 func (r *ShipmentDB) GetShipmentList(req entity.GetShipmentListRequest) (entity.GetShipmentListResponse, error) {

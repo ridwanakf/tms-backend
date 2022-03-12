@@ -20,7 +20,7 @@ const (
 
 // Shipment
 const (
-	queryCreateNewShipment = `INSERT INTO shipments(no_shipment, id_driver, id_truck , origin, destination, status, loading_date) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING id`
+	queryCreateNewShipment = `INSERT INTO shipments(no_shipment, origin, destination, status, loading_date) VALUES($1, $2, $3, 1, $4) RETURNING id`
 	queryGetAllShipments   = `SELECT * FROM trucks`
 	queryGetShipmentsById  = `SELECT * FROM shipments WHERE id=$1`
 	queryUpdateShipment    = `UPDATE shipments SET no_shipment=$1, id_driver=$2, id_truck=$3, origin=$4, destination=$5, status=$6, loading_date=$7, updated_at=$9 WHERE id=$10`
