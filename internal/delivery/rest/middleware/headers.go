@@ -9,6 +9,8 @@ func Headers() echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(c echo.Context) error {
 			c.Response().Header().Set("X-Content-Type-Options", "nosniff")
+			c.Response().Header().Set("Access-Control-Allow-Origin", "*")
+			c.Response().Header().Set("Access-Control-Allow-Headers", "Content-Type")
 			c.Response().Header().Set("X-DNS-Prefetch-Control", "off")
 			c.Response().Header().Set("X-Frame-Options", "DENY")
 			c.Response().Header().Set("Strict-Transport-Security", "max-age=5184000; includeSubDomains")

@@ -20,6 +20,7 @@ type DriverUC interface {
 
 type ShipmentUC interface {
 	CreateNewShipment(req entity.CreateNewShipmentRequest) (entity.CreateNewShipmentResponse, error)
+	AllocateShipment(req entity.AllocateShipmentRequest) (entity.AllocateShipmentResponse, error)
 	GetShipmentList(req entity.GetShipmentListRequest) (entity.GetShipmentListResponse, error)
 	GetShipmentByID(req entity.GetShipmentByIDRequest) (entity.GetShipmentByIDResponse, error)
 	UpdateShipment(req entity.UpdateShipmentRequest) (entity.UpdateShipmentResponse, error)

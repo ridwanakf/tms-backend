@@ -3,6 +3,8 @@ package usecase
 import (
 	"github.com/ridwanakf/tms-backend/internal"
 	"github.com/ridwanakf/tms-backend/internal/entity"
+	"math/rand"
+	"time"
 )
 
 type ShipmentUsecase struct {
@@ -16,8 +18,18 @@ func NewShipmentUsecase(repo internal.ShipmentRepo) *ShipmentUsecase {
 }
 
 func (uc *ShipmentUsecase) CreateNewShipment(req entity.CreateNewShipmentRequest) (entity.CreateNewShipmentResponse, error) {
-	//TODO implement me
-	panic("implement me")
+	req.ShipmentNumber = randSeq(8)
+	parse, err := time.Parse("2006-01-02T15:04:05.000Z", req.LoadingDateStr)
+	if err != nil {
+		return entity.CreateNewShipmentResponse{}, err
+	}
+	req.LoadingDate = parse
+
+	return uc.repo.CreateNewShipment(req)
+}
+
+func (uc *ShipmentUsecase) AllocateShipment(req entity.AllocateShipmentRequest) (entity.AllocateShipmentResponse, error) {
+	return uc.repo.AllocateShipment(req)
 }
 
 func (uc *ShipmentUsecase) GetShipmentList(req entity.GetShipmentListRequest) (entity.GetShipmentListResponse, error) {
@@ -38,4 +50,13 @@ func (uc *ShipmentUsecase) UpdateShipment(req entity.UpdateShipmentRequest) (ent
 func (uc *ShipmentUsecase) DeleteShipment(req entity.DeleteShipmentRequest) (entity.DeleteShipmentResponse, error) {
 	//TODO implement me
 	panic("implement me")
+}
+
+func randSeq(n int) string {
+	var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890")
+	b := make([]rune, n)
+	for i := range b {
+		b[i] = letters[rand.Intn(len(letters))]
+	}
+	return string(b)
 }

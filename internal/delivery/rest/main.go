@@ -32,6 +32,7 @@ func Start(app *app.ShipmentApp) {
 	shipments.GET("", svc.GetShipmentListHandler)
 	shipments.GET("/:id", svc.GetShipmentByIDHandler)
 	shipments.POST("", svc.CreateNewShipmentHandler)
+	shipments.POST("/allocate", svc.AllocateShipmentHandler)
 	shipments.PUT("/:id", svc.UpdateShipmentHandler)
 	shipments.DELETE("/:id", svc.DeleteShipmentHandler)
 

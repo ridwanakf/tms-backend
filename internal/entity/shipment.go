@@ -37,8 +37,8 @@ func (s ShipmentStatus) String() string {
 type Shipment struct {
 	ID             int64          `json:"id" db:"id"`
 	ShipmentNumber string         `json:"no_shipment" db:"no_shipment"`
-	DriverID       int64          `json:"id_driver" db:"id_driver"`
-	TruckID        int64          `json:"id_truck" db:"id_truck"`
+	DriverID       *int64         `json:"id_driver" db:"id_driver"`
+	TruckID        *int64         `json:"id_truck" db:"id_truck"`
 	Origin         string         `json:"origin" db:"origin"`
 	Destination    string         `json:"destination" db:"destination"`
 	Status         ShipmentStatus `json:"status" db:"status"`
@@ -51,6 +51,18 @@ type Shipment struct {
 // Requests
 type (
 	CreateNewShipmentRequest struct {
+		ShipmentNumber string         `json:"no_shipment"`
+		Origin         string         `json:"origin" validate:"required"`
+		Destination    string         `json:"destination" validate:"required"`
+		Status         ShipmentStatus `json:"status"`
+		LoadingDateStr string         `json:"loading_date" validate:"required"`
+		LoadingDate    time.Time
+	}
+
+	AllocateShipmentRequest struct {
+		ID       int64 `json:"id" validate:"required"`
+		DriverID int64 `json:"id_driver" validate:"required"`
+		TruckID  int64 `json:"id_truck" validate:"required"`
 	}
 
 	GetShipmentListRequest struct {
@@ -69,6 +81,10 @@ type (
 // Response
 type (
 	CreateNewShipmentResponse struct {
+		ID int64 `json:"id"`
+	}
+
+	AllocateShipmentResponse struct {
 	}
 
 	GetShipmentListResponse struct {

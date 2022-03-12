@@ -17,7 +17,14 @@ import (
 // New instantiates new Echo server
 func New() *echo.Echo {
 	e := echo.New()
-	e.Use(middleware.CORS(), middleware.Headers())
+	e.Use(md.CORSWithConfig(md.CORSConfig{
+		AllowOrigins:     []string{"*"},
+		MaxAge:           86400,
+		AllowMethods:     []string{"POST", "GET", "PUT", "DELETE", "PATCH", "HEAD"},
+		AllowHeaders:     []string{"*"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+	}), middleware.Headers())
 	e.GET("/health", healthCheck)
 	e.Pre(md.RemoveTrailingSlash())
 	e.Validator = &CustomValidator{V: validator.New()}
