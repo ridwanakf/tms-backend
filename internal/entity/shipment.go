@@ -47,3 +47,39 @@ type Shipment struct {
 	UpdatedAt      time.Time      `json:"updated_at" db:"updated_at"`
 	DeletedAt      time.Time      `json:"deleted_at" db:"deleted_at"`
 }
+
+// Requests
+type (
+	CreateNewShipmentRequest struct {
+	}
+
+	GetShipmentListRequest struct {
+	}
+
+	GetShipmentByIDRequest struct {
+	}
+
+	UpdateShipmentRequest struct {
+	}
+
+	DeleteShipmentRequest struct {
+	}
+)
+
+// Response
+type (
+	CreateNewShipmentResponse struct {
+	}
+
+	GetShipmentListResponse struct {
+	}
+
+	GetShipmentByIDResponse struct {
+	}
+
+	UpdateShipmentResponse struct {
+	}
+
+	DeleteShipmentResponse struct {
+	}
+)

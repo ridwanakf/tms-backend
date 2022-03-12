@@ -14,3 +14,39 @@ type Driver struct {
 	UpdatedAt      time.Time `json:"updated_at" db:"updated_at"`
 	DeletedAt      time.Time `json:"deleted_at" db:"deleted_at"`
 }
+
+// Requests
+type (
+	CreateNewDriverRequest struct {
+	}
+
+	GetDriverListRequest struct {
+	}
+
+	GetDriverByIDRequest struct {
+	}
+
+	UpdateDriverRequest struct {
+	}
+
+	DeleteDriverRequest struct {
+	}
+)
+
+// Response
+type (
+	CreateNewDriverResponse struct {
+	}
+
+	GetDriverListResponse struct {
+	}
+
+	GetDriverByIDResponse struct {
+	}
+
+	UpdateDriverResponse struct {
+	}
+
+	DeleteDriverResponse struct {
+	}
+)

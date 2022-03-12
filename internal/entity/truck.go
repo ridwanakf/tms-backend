@@ -16,3 +16,39 @@ type Truck struct {
 	UpdatedAt      time.Time `json:"updated_at" db:"updated_at"`
 	DeletedAt      time.Time `json:"deleted_at" db:"deleted_at"`
 }
+
+// Requests
+type (
+	CreateNewTruckRequest struct {
+	}
+
+	GetTruckListRequest struct {
+	}
+
+	GetTruckByIDRequest struct {
+	}
+
+	UpdateTruckRequest struct {
+	}
+
+	DeleteTruckRequest struct {
+	}
+)
+
+// Response
+type (
+	CreateNewTruckResponse struct {
+	}
+
+	GetTruckListResponse struct {
+	}
+
+	GetTruckByIDResponse struct {
+	}
+
+	UpdateTruckResponse struct {
+	}
+
+	DeleteTruckResponse struct {
+	}
+)
