@@ -29,6 +29,20 @@ func (r *ShipmentDB) CreateNewShipment(req entity.CreateNewShipmentRequest) (ent
 	return res, nil
 }
 
+func (r *ShipmentDB) AllocateShipment(req entity.AllocateShipmentRequest) (entity.AllocateShipmentResponse, error) {
+	var res entity.AllocateShipmentResponse
+	q, err := r.db.Prepare(queryCreateNewShipment)
+	if err != nil {
+		return res, err
+	}
+
+	err = q.QueryRow(req.ShipmentNumber, req.Origin, req.Destination, req.LoadingDate).Scan(&res.ID)
+	if err != nil {
+		return res, err
+	}
+	return res, nil
+}
+
 func (r *ShipmentDB) GetShipmentList(req entity.GetShipmentListRequest) (entity.GetShipmentListResponse, error) {
 	//TODO implement me
 	panic("implement me")

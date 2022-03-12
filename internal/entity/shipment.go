@@ -59,6 +59,12 @@ type (
 		LoadingDate    time.Time
 	}
 
+	AllocateShipmentRequest struct {
+		ID       int64 `json:"id" validate:"required"`
+		DriverID int64 `json:"id_driver" validate:"required"`
+		TruckID  int64 `json:"id_truck" validate:"required"`
+	}
+
 	GetShipmentListRequest struct {
 	}
 
@@ -76,6 +82,9 @@ type (
 type (
 	CreateNewShipmentResponse struct {
 		ID int64 `json:"id"`
+	}
+
+	AllocateShipmentResponse struct {
 	}
 
 	GetShipmentListResponse struct {

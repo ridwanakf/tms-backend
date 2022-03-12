@@ -28,6 +28,10 @@ func (uc *ShipmentUsecase) CreateNewShipment(req entity.CreateNewShipmentRequest
 	return uc.repo.CreateNewShipment(req)
 }
 
+func (uc *ShipmentUsecase) AllocateShipment(req entity.AllocateShipmentRequest) (entity.AllocateShipmentResponse, error) {
+	return uc.repo.AllocateShipment(req)
+}
+
 func (uc *ShipmentUsecase) GetShipmentList(req entity.GetShipmentListRequest) (entity.GetShipmentListResponse, error) {
 	//TODO implement me
 	panic("implement me")
