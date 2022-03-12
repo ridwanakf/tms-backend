@@ -3,7 +3,7 @@ package entity
 import "time"
 
 type Truck struct {
-	ID             int64     `json:"id" db:"db"`
+	ID             int64     `json:"id" db:"id"`
 	LicenseNumber  string    `json:"license_number" db:"license_number"`
 	TruckType      string    `json:"truck_type" db:"truck_type"`
 	PlateType      string    `json:"plate_type" db:"plate_type"`

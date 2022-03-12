@@ -3,7 +3,7 @@ package entity
 import "time"
 
 type Driver struct {
-	ID             int64     `json:"id" db:"db"`
+	ID             int64     `json:"id" db:"id"`
 	Name           string    `json:"name" db:"name"`
 	Phone          string    `json:"phone" db:"phone"`
 	CardID         int64     `json:"id_card" db:"id_card"`

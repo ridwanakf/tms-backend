@@ -35,7 +35,7 @@ func (s ShipmentStatus) String() string {
 }
 
 type Shipment struct {
-	ID             int64          `json:"id" db:"db"`
+	ID             int64          `json:"id" db:"id"`
 	ShipmentNumber string         `json:"no_shipment" db:"no_shipment"`
 	DriverID       int64          `json:"id_driver" db:"id_driver"`
 	TruckID        int64          `json:"id_truck" db:"id_truck"`
